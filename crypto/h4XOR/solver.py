@@ -1,0 +1,58 @@
+from os import urandom
+from random import randint
+from pwn import xor
+from Crypto.Util.number import *
+
+
+outpout_img = open("flag.png.enc", "rb").read()
+#for i in range(0,len(outpout_img),8):
+#	print(outpout_img[i:i+8])
+#print(outpout_img[:8])
+head = 0x5089474E0A0D0A1A
+head = 0x89504E470D0A1A0A
+#print(head)
+k = long_to_bytes(bytes_to_long(outpout_img[:8])^head)
+#key = urandom(8) + bytes([randint(0, 9)])
+#img.write(xor(outpout_img, key))
+#img = open("flag00.png", "wb")
+#img.write(xor(outpout_img,k))
+img0 =open("flag0.png", "wb")
+img1 =open("flag1.png", "wb")
+img2 =open("flag2.png", "wb")
+img3 =open("flag3.png", "wb")
+img4 =open("flag4.png", "wb")
+img5 =open("flag5.png", "wb")
+img6 =open("flag6.png", "wb")
+img7 =open("flag7.png", "wb")
+img8 =open("flag8.png", "wb")
+img9 =open("flag9.png", "wb")
+key0 = k + bytes([0])
+key1 = k + bytes([1])
+key2 = k + bytes([2])
+key3 = k + bytes([3])
+key4 = k + bytes([4])
+key5 = k + bytes([5])
+key6 = k + bytes([6])
+key7 = k + bytes([7])
+key8 = k + bytes([8])
+key9 = k + bytes([9])
+print(xor(outpout_img, key0)[:8])
+img0.write(xor(outpout_img, key0))
+print(xor(outpout_img, key1)[:8])
+img1.write(xor(outpout_img, key1))
+print(xor(outpout_img, key2)[:8])
+img2.write(xor(outpout_img, key2))
+print(xor(outpout_img, key3)[:8])
+img3.write(xor(outpout_img, key3))
+print(xor(outpout_img, key4)[:8])
+img4.write(xor(outpout_img, key4))
+print(xor(outpout_img, key5)[:8])
+img5.write(xor(outpout_img, key5))
+print(xor(outpout_img, key6)[:8])
+img6.write(xor(outpout_img, key6))
+print(xor(outpout_img, key7)[:8])
+img7.write(xor(outpout_img, key7))
+print(xor(outpout_img, key8)[:8])
+img8.write(xor(outpout_img, key8))
+img9.write(xor(outpout_img, key9))
+
